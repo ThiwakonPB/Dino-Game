@@ -19,3 +19,7 @@ shape = SubResource( 1 )
 visible = false
 position = Vector2( -1, 0 )
 shape = SubResource( 2 )
+
+[node name="Beat Here" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
