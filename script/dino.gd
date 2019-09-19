@@ -1,13 +1,16 @@
 extends KinematicBody2D
 
+
+# Configurable
+var speed = 200
+var jump = 2000
+var gravity = 100
+var is_falling : bool = false  # This bool is true when Dino is falling (velocity.y > 0) checkout function handle_falling
+
+# cache
 var velocity = Vector2()
 const GROUND = Vector2(0,-1)
-
-
-var speed = 200
-var jump = 400
-var gravity = 20
-var is_falling : bool = false  # This bool is true when Dino is falling (velocity.y > 0) checkout function handle_falling
+var jump_release : bool = false # Use to help with jump level height
 
 func _ready():
 	pass
@@ -24,13 +27,26 @@ func _physics_process(delta):
 	pass
 	
 func _debug_print(): # This function is just for printing debuging thigns
-	print('is_falling: %s'%is_falling)
-	
-func _jump(): # added proper jump mechanic which player can choose jump height base on their release timing of jump button
+#	print('vector.y: %s'%velocity.y)
+	pass
+
+
+func _jump(): 
+# added proper jump mechanic which player can choose jump height base on their release timing of jump button
+# Implemented jump level height
 	if Input.is_action_pressed("ui_up") && is_on_floor(): 
+		jump_release = false
 		velocity.y -= jump
+	elif velocity.y == -1200 && jump_release:
+		velocity.y = 1
+		print(velocity.y)
+		print('1 frame link')
+	elif Input.is_action_just_released("ui_up"):
+		jump_release = true
 	elif Input.is_action_just_released("ui_up") && !is_falling:
 		velocity.y = 0
+	
+	
 	
 func _move():
 	if Input.is_action_pressed("ui_right"):

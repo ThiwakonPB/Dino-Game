@@ -17,4 +17,4 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Dino" parent="." instance=ExtResource( 1 )]
-position = Vector2( 184, 321 )
+position = Vector2( 184, 533.218 )
