@@ -9,7 +9,7 @@ extents = Vector2( 466, 10 )
 [node name="stage01" type="Node2D"]
 
 [node name="floor" type="StaticBody2D" parent="."]
-position = Vector2( 207, 578 )
+position = Vector2( 471.174, 578 )
 __meta__ = {
 "_edit_group_": true
 }
