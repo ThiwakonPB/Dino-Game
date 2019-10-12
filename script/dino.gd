@@ -39,8 +39,6 @@ func _jump():
 		velocity.y -= jump
 	elif velocity.y == -1200 && jump_release:
 		velocity.y = 1
-		print(velocity.y)
-		print('1 frame link')
 	elif Input.is_action_just_released("ui_up"):
 		jump_release = true
 	elif Input.is_action_just_released("ui_up") && !is_falling:
@@ -65,11 +63,10 @@ func _handle_falling(): # If Dino is falling then is_falling is true
 	else:
 		is_falling = false
 		
-		
-		
-		
-		
-		
-		
-		
 	
+
+
+func _on_Area2D_area_entered(area):
+	print(area.get_node("./..").name)
+	queue_free()
+	get_tree().paused = true

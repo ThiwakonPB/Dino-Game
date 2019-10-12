@@ -1,13 +1,16 @@
 extends Node
 
-#refrence 
-const obj_cactuse = preload("res://obj_cactuse.tscn")
-#adjustable values
+# refrence 
+const obj_cactuse = preload("res://prefabs/obj/obj_cactuse.tscn")
+# adjustable values
 export var pos = Vector2()
 export (float) var min_timer = 0
 export (float) var max_timer = 0 
 
+signal fish
+
 func _ready():
+	emit_signal("fish")
 	_spawn()
 	pass 
 	
