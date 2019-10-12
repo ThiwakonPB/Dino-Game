@@ -11,5 +11,7 @@ func _process(delta):
 
 func _input(event):
 	if Input.is_key_pressed(82):
-		print("R is press")
+		get_tree().change_scene("res://scene/stage01.tscn")
+		get_tree().paused = false
+		print("Restart")
 	pass
