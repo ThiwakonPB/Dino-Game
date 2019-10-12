@@ -4,7 +4,7 @@ extends Node
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS  # work in pause mode
-	pass # Replace with function body.
+	pass
 
 func _process(delta):
 	pass
