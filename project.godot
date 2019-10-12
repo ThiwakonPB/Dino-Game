@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Dino game"
-run/main_scene="res://stage01.tscn"
+run/main_scene="res://scene/stage01.tscn"
 config/icon="res://icon.png"
 
 [input]
