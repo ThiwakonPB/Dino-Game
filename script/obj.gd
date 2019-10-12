@@ -2,9 +2,11 @@ extends Area2D
 
 export var velocity = Vector2()
 export var timer = 20 
+
+
 func _ready():
-	#process callback 
-	set_process(true)
+	# process callback 
+#	set_process(true)
 	pass 
 	
 func _process(delta):
@@ -14,3 +16,6 @@ func _process(delta):
 	#delete when off screen 
 	if timer == 0 :
 		queue_free()
+
+func _on_obj_cactuse_body_entered(body):
+	pass # Replace with function body.

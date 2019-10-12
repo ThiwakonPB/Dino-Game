@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://prefabs/Dino.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/spawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://script/command.gd" type="Script" id=3]
+[ext_resource path="res://script/AudioBlock.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 466, 10 )
+
+[node name="stage01" type="Node2D"]
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2( 207, 578 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource( 1 )
+
+[node name="Dino" parent="." instance=ExtResource( 1 )]
+position = Vector2( 184, 533.218 )
+
+[node name="spawner" parent="." instance=ExtResource( 2 )]
+pos = Vector2( 1000, 525 )
+max_timer = 2.5
+
+[node name="command" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="AudioBlock" type="AudioStreamPlayer" parent="."]
+script = ExtResource( 4 )
+[connection signal="dino_dead" from="Dino" to="AudioBlock" method="_on_Dino_dino_dead"]
+[connection signal="dino_jump" from="Dino" to="AudioBlock" method="_on_Dino_dino_jump"]
